@@ -1,0 +1,19 @@
+# Ignore node_modules everywhere
+node_modules/
+client/node_modules/
+client/react-version/node_modules/
+server/node_modules/
+
+# Ignore environment files
+.env
+server/.env
+client/react-version/.env
+
+# Ignore build files
+client/react-version/build/
+
+# Misc
+.DS_Store
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
