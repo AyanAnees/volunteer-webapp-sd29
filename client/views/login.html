@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Signup</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, rgb(201, 230, 240) 0%, rgb(214, 235, 255) 100%);
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #0d47a1;
+            color: white;
+            margin-bottom: 2rem;
+        }
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: normal;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #90caf9;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div>VolunteerHub</div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/event-management">Events</a>
+            <a href="/volunteer-matching">Volunteer Matching</a>
+            <a href="/profile">Profile</a>
+            <a href="/history">History</a>
+            <a href="/notifications">Notifications</a>
+            <a href="/login">Login</a>
+        </div>
+    </div>
+
+    <div class="min-h-screen flex items-center justify-center px-4" style="min-height: calc(100vh - 80px);">
+        <div class="max-w-2xl w-full space-y-8 bg-white p-10 rounded-xl shadow-lg">
+
+            <div class="border-b border-gray-200">
+                <ul class="flex -mb-px">
+                    <li class="flex-1">
+                        <button onclick="showTab('login')" class="w-full py-4 text-lg font-medium text-center border-b-2 border-blue-500 text-blue-500" id="login-tab">Login</button>
+                    </li>
+                    <li class="flex-1">
+                        <button onclick="showTab('signup')" class="w-full py-4 text-lg font-medium text-center border-b-2 border-transparent text-gray-500 hover:text-gray-700" id="signup-tab">Sign Up</button>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="login-content" class="space-y-8">
+                <div class="text-center">
+                    <h2 class="text-4xl font-bold text-gray-900">Welcome back</h2>
+                    <p class="mt-3 text-lg text-gray-600">Please enter your details</p>
+                </div>
+                <div id="login-error" class="text-red-600 text-sm hidden"></div>
+                <div id="login-success" class="text-green-600 text-sm hidden"></div>
+                <form id="login-form" class="space-y-6">
+                    <div>
+                        <label class="block text-base font-medium text-gray-700">Email</label>
+                        <input type="email" id="login-email" class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                    </div>
+                    <div>
+                        <label class="block text-base font-medium text-gray-700">Password</label>
+                        <input type="password" id="login-password" class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                    </div>
+                    <button type="submit" class="w-full py-3 px-4 border border-transparent rounded-lg shadow-sm text-base font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200">
+                        Sign in
+                    </button>
+                </form>
+            </div>
+
+            <div id="signup-content" class="space-y-8 hidden">
+                <div class="text-center">
+                    <h2 class="text-4xl font-bold text-gray-900">Create Account</h2>
+                    <p class="mt-3 text-lg text-gray-600">Join us today</p>
+                </div>
+                <div id="signup-error" class="text-red-600 text-sm hidden"></div>
+                <div id="signup-success" class="text-green-600 text-sm hidden"></div>
+                <form id="signup-form" class="space-y-6">
+                    <div class="grid grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-base font-medium text-gray-700">First Name</label>
+                            <input type="text" id="signup-firstname" class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                        </div>
+                        <div>
+                            <label class="block text-base font-medium text-gray-700">Last Name</label>
+                            <input type="text" id="signup-lastname" class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-base font-medium text-gray-700">Email</label>
+                        <input type="email" id="signup-email" class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                    </div>
+                    
+                    <!-- Address Information -->
+                    <div>
+                        <label class="block text-base font-medium text-gray-700">Address Line 1</label>
+                        <input type="text" id="signup-address1" class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required placeholder="Street address">
+                    </div>
+                    <div>
+                        <label class="block text-base font-medium text-gray-700">Address Line 2 (Optional)</label>
+                        <input type="text" id="signup-address2" class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Apartment, suite, unit, etc.">
+                    </div>
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="col-span-1">
+                            <label class="block text-base font-medium text-gray-700">City</label>
+                            <input type="text" id="signup-city" class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                        </div>
+                        <div class="col-span-1">
+                            <label class="block text-base font-medium text-gray-700">State</label>
+                            <select id="signup-state" class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                                <option value="">Select State</option>
+                                <option value="AL">Alabama</option>
+                                <option value="AK">Alaska</option>
+                                <option value="AZ">Arizona</option>
+                                <!-- Add all states here -->
+                                <option value="WY">Wyoming</option>
+                            </select>
+                        </div>
+                        <div class="col-span-1">
+                            <label class="block text-base font-medium text-gray-700">ZIP Code</label>
+                            <input type="text" id="signup-zipcode" class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required pattern="[0-9]{5}(-[0-9]{4})?" placeholder="12345 or 12345-6789">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-base font-medium text-gray-700">Password</label>
+                        <input type="password" id="signup-password" class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                    </div>
+                    <div>
+                        <label class="block text-base font-medium text-gray-700">Confirm Password</label>
+                        <input type="password" id="signup-confirm-password" class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="signup-terms" class="h-5 w-5 text-blue-500 border-gray-300 rounded" required>
+                        <label class="ml-2 block text-base text-gray-700">I agree to the Terms and Privacy Policy</label>
+                    </div>
+                    <button type="submit" class="w-full py-3 px-4 border border-transparent rounded-lg shadow-sm text-base font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200">
+                        Create Account
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/auth.js"></script>
+    <script>
+        function showTab(tab) {
+            document.getElementById('login-tab').classList.toggle('border-blue-500', tab === 'login');
+            document.getElementById('login-tab').classList.toggle('text-blue-500', tab === 'login');
+            document.getElementById('signup-tab').classList.toggle('border-blue-500', tab === 'signup');
+            document.getElementById('signup-tab').classList.toggle('text-blue-500', tab === 'signup');
+            document.getElementById('login-content').classList.toggle('hidden', tab !== 'login');
+            document.getElementById('signup-content').classList.toggle('hidden', tab !== 'signup');
+            
+            // Clear error and success messages when switching tabs
+            document.getElementById('login-error').classList.add('hidden');
+            document.getElementById('login-success').classList.add('hidden');
+            document.getElementById('signup-error').classList.add('hidden');
+            document.getElementById('signup-success').classList.add('hidden');
+        }
+        
+        // Handle login form submission
+        document.getElementById('login-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            
+            // Clear previous messages
+            document.getElementById('login-error').classList.add('hidden');
+            document.getElementById('login-success').classList.add('hidden');
+            
+            const result = await loginUser(email, password);
+            
+            if (result.success) {
+                document.getElementById('login-success').textContent = 'Login successful! Redirecting...';
+                document.getElementById('login-success').classList.remove('hidden');
+                
+                // Redirect to dashboard/profile after successful login
+                setTimeout(() => {
+                    window.location.href = '/profile';
+                }, 1500);
+            } else {
+                document.getElementById('login-error').textContent = result.error || 'Login failed. Please try again.';
+                document.getElementById('login-error').classList.remove('hidden');
+            }
+        });
+        
+        // Handle signup form submission
+        document.getElementById('signup-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('signup-email').value;
+            const password = document.getElementById('signup-password').value;
+            const confirmPassword = document.getElementById('signup-confirm-password').value;
+            const firstName = document.getElementById('signup-firstname').value;
+            const lastName = document.getElementById('signup-lastname').value;
+            const address1 = document.getElementById('signup-address1').value;
+            const address2 = document.getElementById('signup-address2').value;
+            const city = document.getElementById('signup-city').value;
+            const state = document.getElementById('signup-state').value;
+            const zipCode = document.getElementById('signup-zipcode').value;
+            const termsAccepted = document.getElementById('signup-terms').checked;
+            
+            // Clear previous messages
+            document.getElementById('signup-error').classList.add('hidden');
+            document.getElementById('signup-success').classList.add('hidden');
+            
+            // Validate form
+            if (password !== confirmPassword) {
+                document.getElementById('signup-error').textContent = 'Passwords do not match.';
+                document.getElementById('signup-error').classList.remove('hidden');
+                return;
+            }
+            
+            if (!termsAccepted) {
+                document.getElementById('signup-error').textContent = 'You must agree to the terms.';
+                document.getElementById('signup-error').classList.remove('hidden');
+                return;
+            }
+            
+            // Validate ZIP code format
+            const zipCodePattern = /^[0-9]{5}(-[0-9]{4})?$/;
+            if (!zipCodePattern.test(zipCode)) {
+                document.getElementById('signup-error').textContent = 'Please enter a valid ZIP code (e.g., 12345 or 12345-6789).';
+                document.getElementById('signup-error').classList.remove('hidden');
+                return;
+            }
+            
+            // Validate state selection
+            if (!state) {
+                document.getElementById('signup-error').textContent = 'Please select a state.';
+                document.getElementById('signup-error').classList.remove('hidden');
+                return;
+            }
+            
+            const result = await registerUser(email, password, firstName, lastName, address1, address2, city, state, zipCode);
+            
+            if (result.success) {
+                document.getElementById('signup-success').textContent = 'Registration successful! Please log in.';
+                document.getElementById('signup-success').classList.remove('hidden');
+                
+                // Clear form
+                document.getElementById('signup-form').reset();
+                
+                // Switch to login tab after successful registration
+                setTimeout(() => {
+                    showTab('login');
+                }, 2000);
+            } else {
+                document.getElementById('signup-error').textContent = result.error || 'Registration failed. Please try again.';
+                document.getElementById('signup-error').classList.remove('hidden');
+            }
+        });
+        
+        // Check if user is already logged in
+        document.addEventListener('DOMContentLoaded', function() {
+            if (isLoggedIn()) {
+                // User is already logged in, redirect to profile or show logged-in state
+                document.getElementById('login-success').textContent = 'You are already logged in!';
+                document.getElementById('login-success').classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
