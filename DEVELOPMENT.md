@@ -50,3 +50,9 @@ Built login interface with form validation and error handling.
 
 ---
 
+## Create Registration page with validation (2025-02-13T09:20:14)
+
+Added registration form with password confirmation and validation.
+
+---
+
