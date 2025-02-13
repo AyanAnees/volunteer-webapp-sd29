@@ -1,0 +1,193 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: rgba(201, 230, 240);
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #0d47a1;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: normal;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #90caf9;
+}
+
+.history-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+h1 {
+    color: #0d47a1;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.table-container {
+    overflow-x: auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.history-table th,
+.history-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.history-table th {
+    background-color: #0d47a1;
+    color: white;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+}
+
+.history-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.history-table tr:hover {
+    background-color: #e3f2fd;
+}
+
+/* Status styles */
+.status-applied {
+    color: #2196F3;
+    font-weight: bold;
+}
+
+.status-accepted {
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.status-declined {
+    color: #F44336;
+    font-weight: bold;
+}
+
+.status-participated {
+    color: #673AB7;
+    font-weight: bold;
+}
+
+.status-noshow {
+    color: #FF9800;
+    font-weight: bold;
+}
+
+/* Legend */
+.legend {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.legend h3 {
+    margin-top: 0;
+    color: #0d47a1;
+    margin-bottom: 1rem;
+}
+
+.legend ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.status-indicator {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.status-indicator.status-applied { background-color: #2196F3; }
+.status-indicator.status-accepted { background-color: #4CAF50; }
+.status-indicator.status-declined { background-color: #F44336; }
+.status-indicator.status-participated { background-color: #673AB7; }
+.status-indicator.status-noshow { background-color: #FF9800; }
+
+/* Messages */
+.loading-message, .empty-message, .error-message {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+}
+
+.error-message {
+    color: #F44336;
+}
+
+/* Login prompt */
+.login-prompt {
+    background-color: white;
+    padding: 3rem;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.login-prompt h3 {
+    margin-top: 0;
+    color: #0d47a1;
+    margin-bottom: 1.5rem;
+}
+
+.login-button {
+    display: inline-block;
+    background-color: #0d47a1;
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.login-button:hover {
+    background-color: #1565c0;
+}
+
+@media (max-width: 768px) {
+    .legend ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
