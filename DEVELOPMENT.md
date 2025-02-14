@@ -56,3 +56,9 @@ Added registration form with password confirmation and validation.
 
 ---
 
+## Create useAuth hook for authentication (2025-02-14T09:10:35)
+
+Added custom hook to simplify authentication access in components.
+
+---
+
