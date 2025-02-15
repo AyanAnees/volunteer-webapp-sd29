@@ -1,11 +1,12 @@
+main{
+    text-align: center;
+}
 body{
     background-color:rgb(201, 230, 240);
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin-left:5%;
-    margin-right:5%;
+    font-family:arial;
 }
 .butt{
-    width: 48%;
+    width: 50%;
     padding: 16px;
     border:none;
     background-color:rgb(105, 191, 225);
@@ -16,7 +17,7 @@ body{
 }
 .butt:hover{
     background-color: rgb(51, 159, 202);
-    transform:scale(1.06);
+    transform:scale(1.02);
 }
 select{
     width: 42%;
@@ -33,12 +34,12 @@ input:hover{
     transform:scale(1.06);
 }
 .form > h1{
-    width: 50%;
+    width: 100%;
     text-align: center;
 }
 .container{
-    max-width: 320px;
     width: 100%;
+    
 }
 
 .select-btn{
@@ -54,9 +55,9 @@ input:hover{
 
 .select-btn > .label{
     font-size: 18px;
-    font-weight: 400;
 }
 .select-btn.open ~ .list-items{
+    
     opacity:0;
     animation-name: fadeInUp;
     -webkit-animation-name: fadeInUp;
@@ -67,11 +68,11 @@ input:hover{
 }
 .list-items{
     position:absolute;
-    max-width: 320px;
-    width:100%;
+    width:96%;
     margin-top:15px;
     border-radius: 8px;
-    padding:16px;
+    padding-top:16px;
+    padding-bottom:16px;
     animation-name: fadeInDown;
     -webkit-animation-name: fadeInDown;
     animation-duration: 0.35s;
@@ -137,3 +138,33 @@ input:hover{
         opacity: 0;
     }
 }
+.navbar {
+    background-color: #0d47a1;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: normal;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover {
+    color: #90caf9;
+  }
