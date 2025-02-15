@@ -1,0 +1,139 @@
+body{
+    background-color:rgb(201, 230, 240);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left:5%;
+    margin-right:5%;
+}
+.butt{
+    width: 48%;
+    padding: 16px;
+    border:none;
+    background-color:rgb(105, 191, 225);
+    color: white;
+    font-size: 20px;
+    border-radius: 12px;
+    border: 2px solid skyblue;
+}
+.butt:hover{
+    background-color: rgb(51, 159, 202);
+    transform:scale(1.06);
+}
+select{
+    width: 42%;
+    padding: 1%;
+}
+input{
+    background-color:skyblue;
+    width: 6%;
+    padding: 8px;
+    border-radius: 10px;
+}
+input:hover{
+    background-color:rgb(66, 175, 217);
+    transform:scale(1.06);
+}
+.form > h1{
+    width: 50%;
+    text-align: center;
+}
+.container{
+    max-width: 320px;
+    width: 100%;
+}
+
+.select-btn{
+    display:flex;
+    height: 50px;
+    align-items: center;
+    justify-content: space-between;
+    padding:0 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: white;
+}
+
+.select-btn > .label{
+    font-size: 18px;
+    font-weight: 400;
+}
+.select-btn.open ~ .list-items{
+    opacity:0;
+    animation-name: fadeInUp;
+    -webkit-animation-name: fadeInUp;
+    animation-duration: 0.4s;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 0.4s;
+    -webkit-animation-fill-mode: both;
+}
+.list-items{
+    position:absolute;
+    max-width: 320px;
+    width:100%;
+    margin-top:15px;
+    border-radius: 8px;
+    padding:16px;
+    animation-name: fadeInDown;
+    -webkit-animation-name: fadeInDown;
+    animation-duration: 0.35s;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 0.35s;
+    -webkit-animation-fill-mode: both;
+    background-color: white;
+}
+
+.list-items > .item{
+    display: flex;
+    height:100px;
+    cursor: pointer;
+    transition: 0.3s;
+    padding: 0 15px;
+    border-radius: 8px;
+}
+
+.list-items > .item:hover{
+    background-color: lightblue;
+}
+
+.item > .item-text{
+    font-size: 16px;
+}
+
+.item .checkbox{
+    display: flex;
+    height:16px;
+    width: 16px;
+    border-radius: 4px;
+    margin-right: 10px;
+    
+}
+
+.item.checked .checkbox{
+    background-color:deepskyblue;
+    border-color: deepskyblue;
+}
+
+.checkbox .check-icon{
+    color:black;
+    outline: 2px;
+    outline-color: gray;
+}
+
+@keyframes fadeInUp{
+    from{
+        transform: translate3d(0, 30px, 0);
+    }
+    to{
+        transform: translate3d(0,0,0);
+        opacity:1;
+    }
+}
+
+@keyframes fadeInDown{
+    from{
+        transform:translate3d(0,0,0);
+    }
+    to{
+        transform: translate3d(0,30px,0);
+        opacity: 0;
+    }
+}
