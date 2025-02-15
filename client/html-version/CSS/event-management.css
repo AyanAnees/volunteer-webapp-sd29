@@ -1,0 +1,124 @@
+form {
+    max-width: 800px;
+    margin-top: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color:rgb(201, 230, 240);
+    
+    box-shadow: 1px 1px 0px  rgb(100, 149, 237), -1px -1px 0px rgba(20, 20, 20, 0.3);;
+    
+  }
+  
+  #signout{
+    color: #f9f9f9;
+    align-items: end;
+  }
+          body{
+              background-color: white;
+          }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  textarea,
+  select,
+  input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #010101;
+    border-radius: 4px;
+  }
+  
+  select[multiple] {
+    height: 100px;
+  }
+  
+  .form-actions {
+    text-align: right;
+  }
+  
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"] {
+    background-color: #1f1090;
+    color: white;
+  }
+  
+  button[type="button"] {
+    background-color: #dc3545;
+    color: white;
+    margin-left: 10px;
+  }
+  
+  .form-group {
+      margin-bottom: 20px;
+  }
+  .dropdown {
+              position: relative;
+              display: inline-block;
+          }
+.dropdown button {
+padding: 10px 40px 10px 15px; /* Added padding for the arrow */
+background-color: #f9f9f9;
+border: 1px solid #ccc;
+cursor: pointer;
+width: 800px; /* Increased width of the button */
+text-align: left;
+position: relative;
+}
+          .dropdown button::after {
+              content: "▼"; /* Arrow symbol */
+              position: absolute;
+              right: 10px;
+              top: 50%;
+              transform: translateY(-50%);
+              font-size: 12px;
+              color: #333;
+          }
+          .dropdown-content {
+              display: none;
+              position: absolute;
+              background-color: #f9f9f9;
+              border: 1px solid #ccc;
+              padding: 10px;
+              z-index: 1;
+              width: 820px; /* Increased width of the dropdown */
+              box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+              max-height: 150px; /* Set maximum height for scrolling */
+              overflow-y: auto; /* Enable vertical scrolling */
+          }
+          .dropdown:hover .dropdown-content {
+              display: block;
+          }
+          .skills-container {
+              margin-bottom: 5px;
+             
+              
+          }
+          #selected-options {
+              margin-top: 20px;
+              padding: 10px;
+              border: 1px solid #ccc;
+              background-color: #f9f9f9;
+              width: 780px; 
+              border: 1px solid #ccc;
+              box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+  
+          }
+  
+  
+  
