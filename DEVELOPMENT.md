@@ -92,3 +92,9 @@ Implemented opportunity browsing with category filtering.
 
 ---
 
+## Create opportunity card component (2025-02-17T11:22:41)
+
+Added card component for displaying opportunity details.
+
+---
+
