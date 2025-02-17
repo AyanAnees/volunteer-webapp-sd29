@@ -86,3 +86,9 @@ Built availability selection grid for volunteer scheduling.
 
 ---
 
+## Create opportunity listing with filtering (2025-02-17T09:38:52)
+
+Implemented opportunity browsing with category filtering.
+
+---
+
