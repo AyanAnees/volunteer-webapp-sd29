@@ -98,3 +98,9 @@ Added card component for displaying opportunity details.
 
 ---
 
+## Add date formatting utilities (2025-02-17T14:15:32)
+
+Created utility functions for consistent date and time formatting.
+
+---
+
