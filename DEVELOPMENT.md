@@ -110,3 +110,9 @@ Built form for organizations to create and edit events.
 
 ---
 
+## Create event listing page (2025-02-18T11:45:12)
+
+Implemented event management dashboard for organizations.
+
+---
+
