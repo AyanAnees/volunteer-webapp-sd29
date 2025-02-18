@@ -104,3 +104,9 @@ Created utility functions for consistent date and time formatting.
 
 ---
 
+## Create event form component (2025-02-18T09:27:53)
+
+Built form for organizations to create and edit events.
+
+---
+
