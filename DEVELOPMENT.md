@@ -116,3 +116,9 @@ Implemented event management dashboard for organizations.
 
 ---
 
+## Set up organization dashboard (2025-02-19T09:33:27)
+
+Built organization dashboard with event metrics.
+
+---
+
