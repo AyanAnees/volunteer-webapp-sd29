@@ -122,3 +122,9 @@ Built organization dashboard with event metrics.
 
 ---
 
+## Implement event editing (2025-02-19T15:20:48)
+
+Added functionality to edit existing events.
+
+---
+
