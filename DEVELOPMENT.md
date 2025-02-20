@@ -128,3 +128,9 @@ Added functionality to edit existing events.
 
 ---
 
+## Build event detail view (2025-02-20T10:15:33)
+
+Created detailed event view with application status.
+
+---
+
