@@ -134,3 +134,9 @@ Created detailed event view with application status.
 
 ---
 
+## Add event deletion functionality (2025-02-20T14:42:19)
+
+Implemented safe event deletion with confirmation.
+
+---
+
