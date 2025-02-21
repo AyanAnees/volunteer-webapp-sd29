@@ -140,3 +140,9 @@ Implemented safe event deletion with confirmation.
 
 ---
 
+## Implement event status toggle (2025-02-21T09:28:56)
+
+Added ability to activate or pause events.
+
+---
+
