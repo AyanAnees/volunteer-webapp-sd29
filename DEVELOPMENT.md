@@ -146,3 +146,9 @@ Added ability to activate or pause events.
 
 ---
 
+## Build applications management view (2025-02-21T13:37:02)
+
+Created interface for reviewing volunteer applications.
+
+---
+
