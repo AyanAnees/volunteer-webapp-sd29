@@ -200,3 +200,9 @@ Added modal components with animations.
 
 ---
 
+## Design database schema (2025-03-01T09:15:22)
+
+Created SQL schema for all application tables.
+
+---
+
