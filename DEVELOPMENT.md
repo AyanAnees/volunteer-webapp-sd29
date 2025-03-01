@@ -206,3 +206,9 @@ Created SQL schema for all application tables.
 
 ---
 
+## Add RLS policies for security (2025-03-01T14:28:37)
+
+Implemented row-level security policies for database tables.
+
+---
+
