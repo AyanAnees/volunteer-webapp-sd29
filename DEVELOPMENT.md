@@ -230,3 +230,9 @@ Implemented profile management service.
 
 ---
 
+## Create skills service (2025-03-03T14:15:29)
+
+Added service for skills management.
+
+---
+
