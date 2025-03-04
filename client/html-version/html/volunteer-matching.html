@@ -21,27 +21,38 @@
                 <form>
                     <label for = "name">Name:</label>
                     <input type = "text" id ="name" name="name" class="nameInput" required></input>
-                </form>
-                <br>
-                <button onclick = matching() class ="button butt">Select Volunteer</button><br><br>
-                <div class ="info">
-                    <p>Skills: </p>
                     <br>
-                    <p>Preferences: </p>
+                    <button onclick = getProfileInfo() class ="button butt">Select Volunteer</button><br><br>
+                </form>
+                <div class ="info">
+                    <p id = "skills">Skills: </p>
+                    <br>
+                    <p id = "prefs">Preferences: </p>
                     <br><br>
                 </div>
-                <label for = "events"> Event Selection:</label>
-                <select name = "events" id = "events">
-                    <option value = "event1"> event name - description, location, date</option>
-                    <option value = "event2"> event name - description, location, date</option>
-                    <option value = "event3"> event name - description, location, date</option>
-                    <option value = "event4"> event name - description, location, date</option>
-                </select>
-                <input type = "submit" class = "submit" value = "Submit"/>
+                <form onsubmit="sendEvent()">
+                    <label for = "events"> Event Selection:</label>
+                    <select name = "events" id = "events">
+                        <!--<option value = "event1"> event name - description, location, date</option>   
+                        <option value = "event2"> event name - description, location, date</option>
+                        <option value = "event3"> event name - description, location, date</option>
+                        <option value = "event4"> event name - description, location, date</option> -->
+                    </select>
+                    <input type = "submit"/>
+                </form>
+                
 
                 <script>
-                    function matching(){
+                    function getProfileInfo(){
                         
+                        document.getElementById("skills").innerText+=" meow1";
+                        document.getElementById("prefs").innerText+= " meow2";
+                    }
+                    function matchingEvents(){
+                        
+                    }
+                    function sendEvent(){
+                        alert("Matched Event Submitted.");
                     }
                 </script>
         </section>

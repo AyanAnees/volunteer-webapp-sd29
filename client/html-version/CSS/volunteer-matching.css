@@ -11,10 +11,9 @@ label{
 }
 .butt{
     width: 40%;
-    padding: 12px;
+    padding: 0px;
     background-color:rgb(105, 191, 225);
     color: white;
-    font-size: 18px;
     border-radius: 12px;
     border: 2px solid skyblue;
 }
