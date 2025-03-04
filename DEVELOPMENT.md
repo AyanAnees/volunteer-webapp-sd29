@@ -236,3 +236,9 @@ Added service for skills management.
 
 ---
 
+## Fix profile creation bug (2025-03-04T10:37:21)
+
+Resolved issue with profile creation for new users.
+
+---
+
