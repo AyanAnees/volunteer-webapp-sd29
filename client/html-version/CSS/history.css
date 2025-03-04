@@ -10,6 +10,8 @@ table{
     background-color: white;
 }
 td{
+    padding-top: 10px;
+    padding-bottom: 10px;
     outline-color: white;
 }
 th{

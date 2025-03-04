@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>History</title>
     <link rel = "stylesheet" type = "text/css" href="../CSS/history.css">
 </head>
-<body>
+<body onload=loadHistory()>
     <main>
         <div class="navbar">
             <div>VolunteerHub</div>
@@ -16,7 +16,7 @@
             </div>
           </div>
         <h1>Volunteer History</h1>
-        <table>
+        <table id="hist">
             <tr>
                 <th>
                     <p>Event Name</p>
@@ -40,30 +40,49 @@
                     <p>Status</p>
                 </th>
             </tr>
-            <tr>
+            <!--<tr>
                 <td>
-                    <p>Event Name</p>
+                    <p id = "evName"></p>
                 </td>
                 <td>
-                    <p>Event Description</p>
+                    <p id = "evDescription"></p>
                 </td>
                 <td>
-                    <p>Location</p>
+                    <p id = "evLocation"></p>
                 </td>
                 <td>
-                    <p>Required Skills</p>
+                    <p id ="evSkill"></p>
                 </td>
                 <td>
-                    <p>Urgency</p>
+                    <p id = "evUrgency"></p>
                 </td>
                 <td>
-                    <p>Event Date</p>
+                    <p id="evDate"></p>
                 </td>
                 <td>
-                    <p>Status</p>
+                    <p id="evStatus"></p>
                 </td>
-            </tr>
+            </tr>-->
         </table>
+        <script>
+            function loadHistory(){
+                let eventNames = ["Hospital Volunteering", "Earthquake Relief"];
+                let eventDescriptions = "blahblahblah";
+                let eventLocation = ["TX" , "CA"];
+                let eventSkills = ["Healthcare & Social Services", "Disaster Relief"];
+                let eventUrgency = ["medium", "high"];
+                let eventDate = ["3/4/2025" , "3/5/2025"];
+                let eventStatus = ["participated", "upcoming"];;
+                const table = document.getElementById("hist");
+                for (let i = 0; i < eventNames.length; i++){
+                    let tr = document.createElement("tr");
+                    let tdName = document.createElement("td");
+                    tdName.innerText = eventNames[i];
+                    tr.appendChild(tdName);
+                    table.appendChild(tr);
+                }
+            }
+        </script>
     </main>
 </body>
 </html>

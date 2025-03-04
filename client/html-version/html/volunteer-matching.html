@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Matching Form</title>
     <link rel = "stylesheet" type = "text/css" href="../CSS/volunteer-matching.css">
 </head>
 <body>
@@ -18,11 +18,11 @@
         <section class = "form">
             <h1>Volunteer Matching Form</h1>
             <section class = "form">
-                <form>
-                    <label for = "name">Name:</label>
+                <form onsubmit="return false;">
+                    <label for = "name">Full Name:</label>
                     <input type = "text" id ="name" name="name" class="nameInput" required></input>
                     <br>
-                    <button onclick = getProfileInfo() class ="button butt">Select Volunteer</button><br><br>
+                    <button onclick = matchingEvents() class ="button butt">Select Volunteer</button><br><br>
                 </form>
                 <div class ="info">
                     <p id = "skills">Skills: </p>
@@ -30,7 +30,7 @@
                     <p id = "prefs">Preferences: </p>
                     <br><br>
                 </div>
-                <form onsubmit="sendEvent()">
+                <form onsubmit=sendEvent()>
                     <label for = "events"> Event Selection:</label>
                     <select name = "events" id = "events">
                         <!--<option value = "event1"> event name - description, location, date</option>   
@@ -44,11 +44,16 @@
 
                 <script>
                     function getProfileInfo(){
-                        
-                        document.getElementById("skills").innerText+=" meow1";
-                        document.getElementById("prefs").innerText+= " meow2";
+                            let nameInput = document.getElementById("name").value;
+                            if(nameInput.trim()!=""){
+                                document.getElementById("skills").innerText="Skills: ";
+                                document.getElementById("prefs").innerText= "Preferences: ";
+                                document.getElementById("skills").innerText+=" meow1";
+                                document.getElementById("prefs").innerText+= " meow2";
+                            }
                     }
                     function matchingEvents(){
+                        getProfileInfo();
                         
                     }
                     function sendEvent(){
