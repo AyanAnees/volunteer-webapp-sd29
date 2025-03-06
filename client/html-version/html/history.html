@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History</title>
+    <link rel = "stylesheet" type = "text/css" href="../CSS/history.css">
+    <script src="../../../server/routes/hist.js"></script>
+
+</head>
+<body onload=loadHistory()>
+    <main>
+        <div class="navbar">
+            <div>VolunteerHub</div>
+            <div class="nav-links">
+              <a href="#">Home</a>
+              <a href="#">Menu</a>
+            </div>
+          </div>
+        <h1>Volunteer History</h1>
+        <table id="hist">
+            <tr>
+                <th>
+                    <p>Event Name</p>
+                </th>
+                <th>
+                    <p>Event Description</p>
+                </th>
+                <th>
+                    <p>Location</p>
+                </th>
+                <th>
+                    <p>Required Skills</p>
+                </th>
+                <th>
+                    <p>Urgency</p>
+                </th>
+                <th>
+                    <p>Event Date</p>
+                </th>
+                <th>
+                    <p>Status</p>
+                </th>
+            </tr>
+        </table>
+        <!--<script>
+            function loadHistory(){
+                let eventNames = ["Hospital Volunteering", "Earthquake Relief"];
+                let eventDescriptions = ["volunteer at the hospital", "volunteer to help relieve the earthquake"];
+                let eventLocation = ["TX" , "CA"];
+                let eventSkills = ["Healthcare & Social Services", "Disaster Relief"];
+                let eventUrgency = ["medium", "high"];
+                let eventDate = ["3/4/2025" , "3/5/2025"];
+                let eventStatus = ["participated", "upcoming"];;
+                const table = document.getElementById("hist");
+                for (let name in eventNames){
+                    let tr = document.createElement("tr");
+                    let tdName = document.createElement("td");
+                    let tdDesc = document.createElement("td");
+                    let tdLocate = document.createElement("td");
+                    let tdSkill = document.createElement("td");
+                    let tdUrg = document.createElement("td");
+                    let tdDate = document.createElement("td");
+                    let tdStatus = document.createElement("td");
+                    
+                    tdName.innerText = eventNames[name];
+                    tdDesc.innerText = eventDescriptions[name];
+                    tdLocate.innerText = eventDescriptions[name];
+                    tdSkill.innerText = eventSkills[name];
+                    tdUrg.innerText = eventUrgency[name];
+                    tdDate.innerText = eventDate[name];
+                    tdStatus.innerText = eventStatus[name];
+
+                    tr.appendChild(tdName);
+                    tr.appendChild(tdDesc);
+                    tr.appendChild(tdLocate);
+                    tr.appendChild(tdSkill);
+                    tr.appendChild(tdUrg);
+                    tr.appendChild(tdDate);
+                    tr.appendChild(tdStatus);
+
+                    table.appendChild(tr);
+                }
+            }
+        </script>-->
+    </main>
+</body>
+</html>
