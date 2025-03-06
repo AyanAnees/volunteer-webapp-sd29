@@ -1,5 +1,5 @@
-function matchingEvents(){
-    let findName = document.getElementById("name").value;
+function match(){
+    let findName = "Name Name"//document.getElementById("name").value;
     let names = ["Name Name"];
     let opts = ["event 1 - info", "event 2 - info"];
     let nameFound = false;
@@ -13,24 +13,26 @@ function matchingEvents(){
     }
     if(nameFound == true){
         for (let skill in skills){
-            document.getElementById("skills").innerText="Skills: " + skills.join(", ");
+            //document.getElementById("skills").innerText="Skills: " + skills.join(", ");
         }
         for (let pref in prefs){
-            document.getElementById("prefs").innerText = "Preferences: " + prefs.join(", ");
+            //document.getElementById("prefs").innerText = "Preferences: " + prefs.join(", ");
         }
-        let choices = document.getElementById("evSelector");
-        choices.innerHTML="";
+        //let choices = document.getElementById("evSelector");
+        //choices.innerHTML="";
         for (let opt in opts){
-            let option = document.createElement("option");
-            option.textContent = opts[opt];
-            option.value = opts[opt];
-            choices.appendChild(option);
+            //let option = document.createElement("option");
+            //option.textContent = opts[opt];
+            //option.value = opts[opt];
+            //choices.appendChild(option);
         }
     }
     else{
         alert("Cannot Find Volunteer Name.");
     }
+    return findName;
 }
+module.exports=match;
 
 function sendEvent(){
     let eventMatched = document.getElementById("evSelector").value;
