@@ -260,3 +260,9 @@ Built components for displaying notifications.
 
 ---
 
+## Implement real-time updates (2025-03-06T10:17:38)
+
+Added real-time notification updates with Supabase.
+
+---
+
