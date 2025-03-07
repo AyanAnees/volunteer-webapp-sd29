@@ -278,3 +278,9 @@ Added notification dropdown to global header.
 
 ---
 
+## Implement notification badge (2025-03-07T14:19:45)
+
+Added unread notification counter badge.
+
+---
+
