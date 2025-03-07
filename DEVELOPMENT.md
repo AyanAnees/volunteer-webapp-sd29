@@ -272,3 +272,9 @@ Created component for displaying notification history.
 
 ---
 
+## Create notification dropdown in header (2025-03-07T09:33:27)
+
+Added notification dropdown to global header.
+
+---
+
