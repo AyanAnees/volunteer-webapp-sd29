@@ -290,3 +290,9 @@ Created page for viewing all notifications.
 
 ---
 
+## Add mark as read functionality (2025-03-08T15:33:56)
+
+Implemented ability to mark notifications as read.
+
+---
+
