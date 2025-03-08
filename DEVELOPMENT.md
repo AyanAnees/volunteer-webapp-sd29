@@ -284,3 +284,9 @@ Added unread notification counter badge.
 
 ---
 
+## Build notification page (2025-03-08T10:28:37)
+
+Created page for viewing all notifications.
+
+---
+
