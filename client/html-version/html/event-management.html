@@ -1,10 +1,6 @@
-
 <!DOCTYPE html>
 <html lang = "en">
-<!--"dev": "concurrently \"npm run server\" \"npm run client\""
-"scripts": {
-  "start": "react-scripts start"  // for React, for example
-}-->
+
     <head>
         <meta charset="UTF-8 ">  
         <meta http-equiv=" X-UA-Compatible" content = "IE=edge">
@@ -16,6 +12,14 @@
    
     </head>
     <body>
+        <div class="navbar">
+            <div>VolunteerHub</div>
+            <div class="nav-links">
+              <a href="#">Home</a>
+              <a href="#">Menu</a>
+              
+            </div>
+          </div>
       
         <form id="event-management-form">
             <div class="form-group">
@@ -24,7 +28,7 @@
             </div>
           
             <div class="form-group">
-              <label for="event-description">Event Description :</label>
+              <label for="event-description" maxlength = "100">Event Description :</label>
               <textarea id="event-description" name="event-description" rows="6" required></textarea>
             </div>
           
@@ -144,25 +148,128 @@
             </div>
           
             <div class="form-group">
-              <label for="event-date">Event Start Date:</label>
-              <input type="date" id="event-date" name="event-date" required>
+                <label for="event-start-date">Event Start Date:</label>
+                <input type="date" id="event-start-date" name="event-start-date" required>
             </div>
             <div class="form-group">
-                <label for="event-date">Event End Date:</label>
-                <input type="date" id="event-date" name="event-date" required>
-              </div>
+                <label for="event-end-date">Event End Date:</label>
+                <input type="date" id="event-end-date" name="event-end-date" required>
+            </div>
+            
 
           
             <div class="form-actions">
-              <button type="submit">Save Event</button>
+              <button type="submit" id = "save-event">Save Event</button>
               <button type="button" id="cancel-button">Cancel</button>
+             
             </div>
+
+        <h2>Event List</h2>
+        <ul id="event-list"></ul>
+
+        <script>
+            let eventCounter = 0;
+            let events = [];
+            document.getElementById("event-management-form").addEventListener("submit", async function (event) {
+                event.preventDefault();
+
+                const eventData = {
+                    id: eventCounter++,
+                    eventName: document.getElementById("event-name").value,
+                    eventDescription: document.getElementById("event-description").value,
+                    location: document.getElementById("location").value,
+                    urgency: document.getElementById("urgency").value,
+                    startDate: document.getElementById("event-start-date").value,
+                    endDate: document.getElementById("event-end-date").value,
+
+      
+                };
+                events.push(eventData);
+                fetchEvents();
+                
+
+                try {
+                    const response = await fetch("http://localhost:3000/submit-event", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(eventData)
+                    });
+
+                    const result = await response.json();
+
+                    if (response.ok) {
+                        alert("Event submitted successfully!");
+                        await fetchEvents(); // Refresh event list
+                    } else {
+                        alert("Error: " + result.errors.join(", "));
+                    }
+                } catch (error) {
+                    console.error("Error submitting form:", error);
+                    alert("Failed to submit event. Please try again.");
+                }
+            });
+
+            async function fetchEvents() {
+                try {
+                    const response = await fetch("http://localhost:3000/events");
+                    const events = await response.json();
+                    const eventList = document.getElementById("event-list");
+                    eventList.innerHTML = "";
+
+                    events.forEach(event => {
+                    if (!event.id){
+                        console.error("Event missing ID:", event);
+                        return;
+                    }
+                    const listItem = document.createElement("li");
+                    listItem.innerHTML = `
+                        <strong>Event Name:</strong> ${event.eventName} <br>
+                        <strong>Dates:</strong> ${event.startDate} to ${event.endDate} <br>
+                        <strong>Location:</strong> ${event.location} <br>
+                        <strong>Urgency:</strong> ${event.urgency} <br>
+                        <button onclick="deleteEvent('${event.id}')">Delete</button>
+                    `;
+                    eventList.appendChild(listItem);
+                    });
+                    
+
+                } catch (error) {
+                    console.error("Error fetching events:", error);
+                }
+            }
+          
+            async function deleteEvent(eventId) {
+                if (!confirm("Are you sure you want to delete this event?")) return;
+                
+                try {
+                    // Make a DELETE request to remove the event from the backend
+                    const response = await fetch(`http://localhost:3000/events/${eventId}`, {
+                        method: "DELETE"
+                    });
+
+                    if (response.ok) {
+                       
+                        events = events.filter(event => event.id !== eventId);
+                        
+                     
+                        await fetchEvents();
+                        
+                        console.log(`Event with ID: ${eventId} deleted successfully.`);
+                    } else {
+                        alert("Failed to delete event.");
+                    }
+                } catch (error) {
+                    console.error("Error deleting event:", error);
+                }
+            }           
+            fetchEvents();
+        </script>
+                
           </form>
  
 
 
     </body>
 </html>
-
 
 

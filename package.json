@@ -7,12 +7,27 @@
     "server": "node ./server/server.js",
     "client": "cd client && npm start",
     "test": "jest"
-    
+
   },
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
     "if-env": "^1.0.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AyanAnees/volunteer-webapp-sd29.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/AyanAnees/volunteer-webapp-sd29/issues"
+  },
+  "homepage": "https://github.com/AyanAnees/volunteer-webapp-sd29#readme",
+  "description": "",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
   }
 }
