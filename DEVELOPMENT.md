@@ -296,3 +296,9 @@ Implemented ability to mark notifications as read.
 
 ---
 
+## Implement application form (2025-03-10T09:15:22)
+
+Built application submission interface for volunteers.
+
+---
+
