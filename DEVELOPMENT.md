@@ -302,3 +302,9 @@ Built application submission interface for volunteers.
 
 ---
 
+## Create application service (2025-03-10T14:42:18)
+
+Added service for managing volunteer applications.
+
+---
+
