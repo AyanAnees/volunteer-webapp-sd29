@@ -5,13 +5,20 @@
   "scripts": {
     "build": "if-env TYPE=server && (cd server && npm install) || (cd client && npm install)",
     "server": "node ./server/server.js",
-    "client": "cd client && npm start"
-    
+    "client": "cd client && npm start",
+    "test": "jest --env=jsdom"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
     "if-env": "^1.0.4"
+  },
+  "jest":
+   { "testEnvironment": "jsdom" 
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0"
   }
 }

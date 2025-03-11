@@ -1,11 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile</title>
+  <link rel="stylesheet" href="../CSS/profile.css">
 </head>
 <body>
-    
+  <div class="navbar">
+    <div>The Volunteer Hive</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="volunteer-matching.html">The Volunteer Hive</a>
+      <a href="login.html">Login</a>
+      <a href="register.html">Sign Up</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>Create Your Profile</h2>
+    <form id="profileForm">
+      <label for="fullName">Full Name:</label>
+      <input type="text" id="fullName" name="fullName" required maxlength="50">
+
+      <label for="address1">Address 1:</label>
+      <input type="text" id="address1" name="address1" required maxlength="100">
+
+      <label for="address2">Address 2:</label>
+      <input type="text" id="address2" name="address2" maxlength="100">
+
+      <label for="city">City:</label>
+      <input type="text" id="city" name="city" required maxlength="100">
+
+      <label for="state">State:</label>
+      <select id="state" name="state" required>
+        <option value="">Select a state</option>
+        <option value="AL">AL</option>
+        <option value="AK">AK</option>
+        <option value="AZ">AZ</option>
+        <option value="AR">AR</option>
+        <option value="CA">CA</option>
+        <option value="TX">TX</option>
+      </select>
+
+      <label for="zipCode">Zip Code:</label>
+      <input type="text" id="zipCode" name="zipCode" pattern="[0-9]{5,9}" title="Zip Code must be 5 to 9 digits" required maxlength="9">
+
+      <label for="skills">Skills (select multiple):</label>
+      <select id="skills" name="skills" multiple size="5" required>
+        <option value="Cooking">Cooking</option>
+        <option value="Cleaning">Cleaning</option>
+        <option value="Driving">Driving</option>
+        <option value="First Aid">First Aid</option>
+        <option value="Teaching">Teaching</option>
+        <option value="Counseling">Counseling</option>
+      </select>
+
+      <label>Availability (Date and Time Slots):</label>
+      <div id="dateTimeSlots">
+        <input type="datetime-local" name="dateTimeSlot0" required>
+      </div>
+      <button type="button" onclick="addDateTimeSlot()">+ ADD SLOT</button>
+
+      <button type="submit">Save Profile</button>
+    </form>
+  </div>
+
+  <script src="js/profile.js"></script>
 </body>
 </html>
