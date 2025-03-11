@@ -5,7 +5,6 @@ function showError(message, type) {
     }
 }
 
-// Function to validate Login Form
 function validateLogin(event) {
     event.preventDefault();
 
@@ -17,7 +16,6 @@ function validateLogin(event) {
         return false;
     }
 
-    // For testing purposes - bypass localStorage check in test environment
     if (typeof jest !== 'undefined') {
         return true;
     }
@@ -38,7 +36,6 @@ function validateLogin(event) {
     return true;
 }
 
-// Function to validate Signup Form
 function validateSignup(event) {
     event.preventDefault();
 
@@ -79,7 +76,6 @@ function validateSignup(event) {
         return false;
     }
 
-    // Save user data in localStorage (skip in test environment)
     if (typeof jest === 'undefined') {
         const userData = { firstName, lastName, email, password };
         localStorage.setItem("user", JSON.stringify(userData));
@@ -90,7 +86,6 @@ function validateSignup(event) {
     return true;
 }
 
-// Function to switch tabs between login and signup
 function showTab(tab) {
     document.getElementById('login-tab').classList.toggle('border-blue-500', tab === 'login');
     document.getElementById('login-tab').classList.toggle('text-blue-500', tab === 'login');
@@ -100,7 +95,6 @@ function showTab(tab) {
     document.getElementById('signup-content').classList.toggle('hidden', tab !== 'signup');
 }
 
-// Attach event listeners after DOM loads
 document.addEventListener('DOMContentLoaded', function () {
     const loginForm = document.querySelector('#login-content form');
     const signupForm = document.querySelector('#signup-content form');
@@ -115,7 +109,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-// ✅ Export functions for Jest Testing (Only in Node.js Environment)
 if (typeof module !== "undefined" && module.exports) {
     module.exports = { showError, validateLogin, validateSignup };
 }

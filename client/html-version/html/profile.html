@@ -1,19 +1,109 @@
+<!-- profile.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User Profile</title>
-  <link rel="stylesheet" href="../CSS/profile.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: rgba(201, 230, 240);
+      color: #333;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .navbar {
+      background-color: #0d47a1;
+      color: white;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+      box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: normal;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #90caf9;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 700px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: rgb(255, 255, 255);
+      border-radius: 12px;
+      box-shadow: 0px 6px 10px rgba(0,0,0,0.1);
+    }
+
+    input, select, textarea {
+      padding: 0.8rem;
+      width: 100%;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    select[multiple] {
+      height: auto;
+      overflow-y: auto;
+      padding: 0.5rem;
+    }
+
+
+    button {
+      padding: 0.85rem;
+      font-size: 1.1rem;
+      color: white;
+      background-color: #1976d2;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    let slotCount = 1;
+    function addDateTimeSlot() {
+      if (slotCount < 7) {
+        const slotContainer = document.getElementById('dateTimeSlots');
+        const newSlot = document.createElement('div');
+        newSlot.innerHTML = `<input type="datetime-local" name="dateTimeSlot${slotCount}" required>`;
+        slotContainer.appendChild(newSlot);
+        slotCount++;
+      } else {
+        alert('Maximum of 7 date-time slots allowed.');
+      }
+    }
+  </script>
 </head>
 <body>
   <div class="navbar">
-    <div>The Volunteer Hive</div>
+    <div>VolunteerHub</div>
     <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="volunteer-matching.html">The Volunteer Hive</a>
-      <a href="login.html">Login</a>
-      <a href="register.html">Sign Up</a>
+      <a href="#">Home</a>
+      <a href="#">Menu</a>
+      <a href="#">Login</a>
+      <a href="#">Sign Up</a>
     </div>
   </div>
 
@@ -65,7 +155,5 @@
       <button type="submit">Save Profile</button>
     </form>
   </div>
-
-  <script src="js/profile.js"></script>
 </body>
 </html>
