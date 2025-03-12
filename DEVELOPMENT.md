@@ -320,3 +320,9 @@ Added detailed view of individual applications.
 
 ---
 
+## Create application status update functionality (2025-03-12T09:33:27)
+
+Implemented ability to update application status.
+
+---
+
