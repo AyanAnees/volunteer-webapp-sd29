@@ -326,3 +326,9 @@ Implemented ability to update application status.
 
 ---
 
+## Add application filtering (2025-03-12T14:35:19)
+
+Created filters for application management.
+
+---
+
