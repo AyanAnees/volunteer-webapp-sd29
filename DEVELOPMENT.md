@@ -332,3 +332,9 @@ Created filters for application management.
 
 ---
 
+## Implement application sorting (2025-03-13T10:28:37)
+
+Added sorting options for applications.
+
+---
+
