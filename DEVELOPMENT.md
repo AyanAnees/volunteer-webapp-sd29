@@ -338,3 +338,9 @@ Added sorting options for applications.
 
 ---
 
+## Create volunteer view of applications (2025-03-13T15:15:29)
+
+Built interface for volunteers to see their applications.
+
+---
+
