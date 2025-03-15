@@ -344,3 +344,9 @@ Built interface for volunteers to see their applications.
 
 ---
 
+## Configure Vitest (2025-03-15T09:22:47)
+
+Set up Vitest for component and service testing.
+
+---
+
