@@ -350,3 +350,9 @@ Set up Vitest for component and service testing.
 
 ---
 
+## Implement test utilities (2025-03-15T14:17:38)
+
+Created test helpers and mock functions.
+
+---
+
