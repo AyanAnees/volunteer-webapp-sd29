@@ -386,3 +386,9 @@ Implemented tests for event management.
 
 ---
 
+## Create application service tests (2025-03-18T15:15:29)
+
+Added tests for application handling.
+
+---
+
