@@ -1,55 +1,59 @@
-// Gonna hold our backend
-const express = require("express");
-const cors = require("cors");
-const bodyParser = require("body-parser");
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import pool from './db.js';  
+
+dotenv.config();
 
 const app = express();
-const PORT = 3000;
+app.use(cors());
+app.use(express.json()); 
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*"); 
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+app.use(cors({ origin: "http://127.0.0.1:5501" }));
 
-// Middleware
-app.use(cors()); // Allow requests from frontend
-app.use(bodyParser.json()); // Parse JSON data
 
-// Hardcoded storage for events (this will be lost when server restarts)
-let events = [];
-
-// ✅ Route to handle event submission
-app.post("/submit-event", (req, res) => {
-    const { eventName, eventDescription, location, requiredSkills, urgency, startDate, endDate } = req.body;
-
-    // Validate required fields
-    if (!eventName || !location || !startDate || !endDate) {
-        return res.status(400).json({ error: "Missing required fields" });
+app.post('/events', async (req, res) => {
+    try {
+        const { eventName, eventDescription, location, urgency, startDate, endDate } = req.body;
+        console.log("Received Data:", req.body);
+        const [result] = await pool.query(
+            'INSERT INTO events (event_name, event_description, location, urgency, start_date, end_date) VALUES (?, ?, ?, ?, ?, ?)',
+            [eventName, eventDescription, location, urgency, startDate, endDate]
+        );
+        res.status(201).json({ message: "Event added successfully!", eventId: result.insertId });
+    } catch (error) {
+        console.error('Error saving event:', error);
+        res.status(500).json({ error: "Database error" });
     }
-
-    // Create event object
-    const newEvent = {
-        id: events.length + 1, // Simple ID generation
-        eventName,
-        eventDescription,
-        location,
-        requiredSkills: requiredSkills || [],
-        urgency,
-        startDate,
-        endDate
-    };
-
-    events.push(newEvent); // Store event in memory
-    res.status(201).json({ message: "Event saved successfully!", event: newEvent });
 });
 
-// ✅ Route to get all stored events
-app.get("/events", (req, res) => {
-    res.json(events);
+
+app.get('/events', async (req, res) => {
+    try {
+        const [rows] = await pool.query('SELECT * FROM events');
+        res.json(rows);
+    } catch (error) {
+        console.error('Error fetching events:', error);
+        res.status(500).json({ error: "Database error" });
+    }
 });
 
-// ✅ Route to delete all events (reset)
-app.delete("/clear-events", (req, res) => {
-    events = []; // Clear event storage
-    res.json({ message: "All events cleared!" });
+
+app.delete('/events/:id', async (req, res) => {
+    try {
+        const eventId = req.params.id;
+        await pool.query('DELETE FROM events WHERE id = ?', [eventId]);
+        res.json({ message: "Event deleted successfully!" });
+    } catch (error) {
+        console.error('Error deleting event:', error);
+        res.status(500).json({ error: "Database error" });
+    }
 });
 
-// Start server
-app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
-});
+const PORT = process.env.PORT || 5001;
+app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));
