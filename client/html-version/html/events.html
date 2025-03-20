@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Events</title>
+    <link rel="stylesheet" type="text/css" href="../CSS/event-management.css"> 
+</head>
+<body>
+    <div class="navbar">
+        <div>VolunteerHub</div>
+        <div class="nav-links">
+          <a href="#">Home</a>
+          <a href="#">Menu</a>
+          <a href="event-management.html" id="create-event">Create Events</a>
+
+        </div>
+    </div>
+
+    <h1>Event List</h1>
+    <ul id="event-list"></ul>
+    <script>
+        async function loadEvents() {
+            try {
+                const response = await fetch('http://localhost:5001/events'); 
+                const events = await response.json();
+                const eventList = document.getElementById("event-list");
+                eventList.innerHTML = ""; 
+    
+                events.forEach(event => {
+                    const li = document.createElement("li");
+                    li.innerHTML = `
+                        <strong>${event.event_name}</strong>: ${event.event_description} <br>
+                        <button onclick="deleteEvent(${event.id})">Delete</button>
+                    `;
+                    eventList.appendChild(li);
+                });
+            } catch (error) {
+                console.error(" Error loading events:", error);
+            }
+        }
+    
+        async function deleteEvent(eventId) {
+            try {
+                await fetch(`http://localhost:3000/events/${eventId}`, { method: "DELETE" });
+                loadEvents();  
+            } catch (error) {
+                console.error(" Error deleting event:", error);
+            }
+        }
+    
+        document.addEventListener("DOMContentLoaded", loadEvents);
+    </script>
+    
+
+    
+</body>
+</html>
+
