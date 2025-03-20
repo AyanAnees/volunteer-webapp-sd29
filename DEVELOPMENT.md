@@ -392,3 +392,9 @@ Added tests for application handling.
 
 ---
 
+## Create history service (2025-03-20T09:28:37)
+
+Implemented service for tracking volunteer history.
+
+---
+
