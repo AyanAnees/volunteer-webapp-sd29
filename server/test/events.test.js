@@ -8,13 +8,11 @@ import request from 'supertest';
 const mockPool = {
     query: jest.fn(),
   };
-  
-  // Mock the db.js module
+ 
   jest.unstable_mockModule('../db.js', () => ({
     default: mockPool,
   }));
   
-  // Dynamically import the app and pool after mocking
   const { default: app } = await import('../server.js');
   const { default: pool } = await import('../db.js');
 
@@ -58,7 +56,7 @@ describe('Event Routes', () => {
                 endDate: '2023-12-02',
             };
 
-            // Mock a database error
+           
             pool.query.mockRejectedValueOnce(new Error('Database error'));
 
             const response = await request(app)
@@ -93,7 +91,6 @@ describe('Event Routes', () => {
                 },
             ];
 
-            // Mock the database query
             pool.query.mockResolvedValueOnce([mockEvents]);
 
             const response = await request(app).get('/events');
@@ -103,7 +100,7 @@ describe('Event Routes', () => {
         });
 
         it('should return 500 status if database query fails', async () => {
-            // Mock a database error
+         
             pool.query.mockRejectedValueOnce(new Error('Database error'));
 
             const response = await request(app).get('/events');
@@ -151,7 +148,6 @@ describe('Event Routes', () => {
                 skills: 'Updated Skills',
             };
 
-            // Mock the database query
             pool.query.mockResolvedValueOnce([{ affectedRows: 0 }]);
 
             const response = await request(app)
@@ -174,7 +170,6 @@ describe('Event Routes', () => {
                 skills: 'Updated Skills',
             };
 
-            // Mock a database error
             pool.query.mockRejectedValueOnce(new Error('Database error'));
 
             const response = await request(app)
@@ -204,7 +199,6 @@ describe('Event Routes', () => {
         it('should return 500 status if database query fails', async () => {
             const mockEventId = 1;
 
-            // Mock a database error
             pool.query.mockRejectedValueOnce(new Error('Database error'));
 
             const response = await request(app).delete(`/events/${mockEventId}`);
