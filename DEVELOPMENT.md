@@ -440,3 +440,9 @@ Added timeline view of upcoming events.
 
 ---
 
+## Add calendar view filtering (2025-03-24T09:22:47)
+
+Implemented filters for calendar views.
+
+---
+
