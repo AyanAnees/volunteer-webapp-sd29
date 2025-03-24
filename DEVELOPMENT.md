@@ -446,3 +446,9 @@ Implemented filters for calendar views.
 
 ---
 
+## Create upcoming events list (2025-03-24T14:17:38)
+
+Built component for displaying upcoming events.
+
+---
+
