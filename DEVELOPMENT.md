@@ -458,3 +458,9 @@ Implemented month/week navigation controls.
 
 ---
 
+## Create event detail in calendar (2025-03-25T15:19:45)
+
+Added detailed event popover in calendar.
+
+---
+
