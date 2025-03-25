@@ -452,3 +452,9 @@ Built component for displaying upcoming events.
 
 ---
 
+## Add calendar navigation (2025-03-25T10:33:56)
+
+Implemented month/week navigation controls.
+
+---
+
