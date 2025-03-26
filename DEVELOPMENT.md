@@ -464,3 +464,9 @@ Added detailed event popover in calendar.
 
 ---
 
+## Implement dashboard overview (2025-03-26T09:33:27)
+
+Created organization dashboard overview.
+
+---
+
