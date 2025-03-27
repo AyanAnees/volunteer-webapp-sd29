@@ -482,3 +482,9 @@ Added statistical analysis of applications.
 
 ---
 
+## Implement volunteer metrics (2025-03-27T15:28:37)
+
+Created metrics for volunteer engagement.
+
+---
+
