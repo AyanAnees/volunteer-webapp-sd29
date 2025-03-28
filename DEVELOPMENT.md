@@ -488,3 +488,9 @@ Created metrics for volunteer engagement.
 
 ---
 
+## Add recent activity feed (2025-03-28T09:42:18)
+
+Built activity feed for organization dashboard.
+
+---
+
