@@ -506,3 +506,9 @@ Set up testing for application routes.
 
 ---
 
+## Implement home route tests (2025-03-29T15:37:21)
+
+Created tests for home page routes.
+
+---
+
