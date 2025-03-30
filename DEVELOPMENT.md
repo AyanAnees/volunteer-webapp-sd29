@@ -512,3 +512,9 @@ Created tests for home page routes.
 
 ---
 
+## Build auth route tests (2025-03-30T09:35:19)
+
+Added tests for authentication routes.
+
+---
+
