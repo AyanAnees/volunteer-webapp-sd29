@@ -518,3 +518,9 @@ Added tests for authentication routes.
 
 ---
 
+## Create dashboard route tests (2025-03-30T14:28:37)
+
+Implemented tests for dashboard routes.
+
+---
+
