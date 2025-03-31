@@ -524,3 +524,9 @@ Implemented tests for dashboard routes.
 
 ---
 
+## Add opportunities route tests (2025-03-31T10:42:56)
+
+Built tests for opportunity routes.
+
+---
+
