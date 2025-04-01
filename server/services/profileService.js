@@ -360,4 +360,4 @@ const profileService = {
   }
 };
 
-module.exports = profileService;"// Improved profile data validation"  
+module.exports = profileService;

@@ -216,4 +216,4 @@ const authService = {
   },
 };
 
-module.exports = authService;"// Enhanced error handling for login"  
+module.exports = authService;

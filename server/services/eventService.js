@@ -456,4 +456,4 @@ const eventService = {
   }
 };
 
-module.exports = eventService;"// Optimized event filtering logic"  
+module.exports = eventService;
