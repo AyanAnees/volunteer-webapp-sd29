@@ -1,79 +1,84 @@
-# Volunteer WebApp
+# Volunteer Web Application
 
-A volunteer matching application designed to connect volunteers with events.
+## Overview
+A comprehensive web application designed to connect volunteers with volunteering opportunities. This platform aims to streamline the process of finding and managing volunteer activities, tracking volunteer history, and coordinating events.
 
 ## Features
-
-- User registration and authentication using Supabase
-- Profile management for volunteers
-- Event creation and management
-- Volunteer matching based on skills and availability
-- History tracking for volunteer activities
+- **User Authentication**: Secure login and registration system
+- **Volunteer Matching**: Algorithm to match volunteers with suitable opportunities
+- **Event Management**: Create, edit, and manage volunteering events
+- **User Profiles**: Customizable profiles with preferences and history
+- **Volunteer History**: Track and display volunteering activity
+- **Notifications**: Alert system for new opportunities and updates
 
 ## Tech Stack
+- **Frontend**: HTML, CSS, JavaScript
+- **Backend**: Node.js, Express
+- **Database**: PostgreSQL with Supabase
+- **Testing**: Jest for unit and integration tests
 
-- **Frontend**: HTML, CSS, Tailwind CSS
-- **Backend**: Express.js
-- **Database**: Supabase (PostgreSQL)
-- **Authentication**: Supabase Auth
+## Project Structure
+```
+volunteer-webapp/
+├── client/               # Frontend code
+│   ├── public/           # Public assets
+│   │   ├── css/          # CSS stylesheets
+│   │   └── js/           # JavaScript files
+│   └── views/            # HTML views
+├── server/               # Backend code
+│   ├── config/           # Server configuration
+│   ├── routes/           # API routes
+│   └── services/         # Business logic services
+└── tests/                # Test suites
+    ├── mocks/            # Test mocks
+    ├── routes/           # Route tests
+    └── services/         # Service tests
+```
 
 ## Getting Started
 
 ### Prerequisites
-
 - Node.js (v14 or higher)
-- npm
-- Supabase account
+- npm or yarn
 
 ### Installation
-
-1. Clone the repository:
+1. Clone the repository
    ```
-   git clone https://github.com/ayyan67/volunteer-webapp-sd29-reorganized.git
-   cd volunteer-webapp-sd29-reorganized
+   git clone https://github.com/AyanAnees/volunteer-webapp-sd29.git
+   cd volunteer-webapp-sd29
    ```
 
-2. Install dependencies:
+2. Install dependencies
    ```
    npm install
    ```
 
-3. Set up environment variables:
-   - Copy `.env.example` to `.env`
-   - Add your Supabase credentials
+3. Create a `.env` file in the root directory with the following variables:
+   ```
+   PORT=3002
+   SUPABASE_URL=your_supabase_url
+   SUPABASE_KEY=your_supabase_key
+ 
+   ```
 
-4. Set up Supabase:
-   - Follow the instructions in `SUPABASE_SETUP.md`
-   - Run the SQL queries in `supabase_setup.sql`
-
-5. Start the server:
+4. Start the development server
    ```
    npm start
    ```
-   For development:
-   ```
-   npm run dev
-   ```
 
-6. Open your browser and navigate to http://localhost:3000
+5. Visit `http://localhost:3002` in your browser to access the application
 
-## Project Structure
+## Testing
+Run tests using the following command:
+```
+npm test
+```
 
-- `/client`: Frontend files
-  - `/public`: Static assets
-  - `/views`: HTML templates
-- `/server`: Backend files
-  - `/config`: Configuration files
-  - `/routes`: API routes
-  - `/services`: Business logic
-- `/server.js`: Main entry point
-
-## Authentication Flow
-
-The application implements a two-step registration process:
-1. User signs up with email, password, and basic info
-2. After first login, user completes their profile with address, skills, and availability
+## Team
+- **Ayan Anees**: Authentication and state management
+- **Haley Tri**: Volunteer matching and history features
+- **Hanna Asfaw**: Event management functionality
+- **Sameer Gul**: User profile management
 
 ## License
-
-This project is licensed under the MIT License.
+This project is licensed under the MIT License - see the LICENSE file for details.
