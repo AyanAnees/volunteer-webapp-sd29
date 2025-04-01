@@ -1,7 +1,8 @@
 // Main server entry point
 const app = require('./server/server');
 
-const PORT = process.env.PORT || 3000;
+// Use a fixed port 3002 to avoid conflicts
+const PORT = 3002;
 
 // Start server
 app.listen(PORT, () => {

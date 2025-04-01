@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer History</title>
+    <link rel="stylesheet" type="text/css" href="/css/history.css">
+</head>
+<body>
+    <div class="navbar">
+        <div>VolunteerHub</div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/event-management">Events</a>
+            <a href="/volunteer-matching">Volunteer Matching</a>
+            <a href="/profile">Profile</a>
+            <a href="/history">History</a>
+            <a href="/notifications">Notifications</a>
+            <a href="/login">Login</a>
+        </div>
+    </div>
+
+    <div class="history-container">
+        <h1>Volunteer History</h1>
+        
+        <div class="table-container">
+            <table class="history-table">
+                <thead>
+                    <tr>
+                        <th>Event Name</th>
+                        <th>Description</th>
+                        <th>Location</th>
+                        <th>Required Skills</th>
+                        <th>Urgency</th>
+                        <th>Event Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="history-table-body">
+                    <tr>
+                        <td colspan="7" class="loading-message">Loading volunteer history...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="legend">
+            <h3>Status Legend:</h3>
+            <ul>
+                <li><span class="status-indicator status-applied"></span> Applied - Awaiting response</li>
+                <li><span class="status-indicator status-accepted"></span> Accepted - You've been selected</li>
+                <li><span class="status-indicator status-declined"></span> Declined - Not selected for this event</li>
+                <li><span class="status-indicator status-participated"></span> Participated - Successfully completed</li>
+                <li><span class="status-indicator status-noshow"></span> No Show - Marked as absent</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="/js/auth.js"></script>
+    <script src="/js/history.js"></script>
+</body>
+</html>
