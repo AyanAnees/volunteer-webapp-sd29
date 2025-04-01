@@ -536,3 +536,9 @@ Created tests for event management routes.
 
 ---
 
+## Configure ESLint (2025-04-01T09:17:38)
+
+Set up ESLint for code quality.
+
+---
+
