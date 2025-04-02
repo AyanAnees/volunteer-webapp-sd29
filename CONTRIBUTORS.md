@@ -5,6 +5,7 @@ This project was developed collaboratively by the following team members, each r
 ## Team Members and Contributions
 
 ### Ayan Anees ([@AyanAnees](https://github.com/AyanAnees))
+- **Email**: ayananees007@gmail.com
 - **Primary Area**: Authentication and State Management
 - **Contributions**:
   - Login system development
@@ -14,6 +15,7 @@ This project was developed collaboratively by the following team members, each r
   - Authentication service integration
 
 ### Haley Trinh ([@haleytri](https://github.com/haleytri))
+- **Email**: haleytrinh7@gmail.com
 - **Primary Area**: Volunteer Matching and History Features
 - **Contributions**:
   - Volunteer matching algorithm
@@ -23,6 +25,7 @@ This project was developed collaboratively by the following team members, each r
   - Volunteer service layer development
 
 ### Hanna Asfaw ([@Hannadem12](https://github.com/Hannadem12))
+- **Email**: hannadasfaw@gmail.com
 - **Primary Area**: Event Management
 - **Contributions**:
   - Event creation and management
@@ -32,6 +35,7 @@ This project was developed collaboratively by the following team members, each r
   - Event service implementation
 
 ### Sameer Gul ([@SameerGul123](https://github.com/SameerGul123))
+- **Email**: sameergul6619@gmail.com
 - **Primary Area**: User Profile Management
 - **Contributions**:
   - Profile creation and editing
