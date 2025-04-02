@@ -554,3 +554,9 @@ Enabled strict type checking for better code quality.
 
 ---
 
+## Configure code coverage thresholds (2025-04-02T15:37:21)
+
+Set minimum test coverage requirements.
+
+---
+
