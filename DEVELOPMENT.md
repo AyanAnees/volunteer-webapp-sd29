@@ -584,3 +584,9 @@ Implemented touch-friendly interface elements.
 
 ---
 
+## Add code splitting (2025-04-05T09:33:27)
+
+Implemented code splitting for better performance.
+
+---
+
