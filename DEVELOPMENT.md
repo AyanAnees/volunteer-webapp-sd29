@@ -614,3 +614,9 @@ Created end-to-end tests for authentication.
 
 ---
 
+## Create volunteer signup flow tests (2025-04-07T14:22:47)
+
+Built tests for volunteer registration process.
+
+---
+
