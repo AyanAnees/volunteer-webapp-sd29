@@ -626,3 +626,9 @@ Implemented tests for organization registration.
 
 ---
 
+## Create application flow tests (2025-04-08T15:33:56)
+
+Added tests for application submission flow.
+
+---
+
