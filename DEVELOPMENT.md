@@ -650,3 +650,9 @@ Added documentation for deployment process.
 
 ---
 
+## Apply final database fixes (2025-04-09T12:28:37)
+
+Fixed database issues before deployment.
+
+---
+
