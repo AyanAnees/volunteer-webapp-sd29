@@ -23,7 +23,9 @@ remap-authors.sh
 rewrite-history-force.sh
 rewrite-history.sh
 run-fix-all.bat
+run-fix-attribution.bat
 run-fix-hanna.bat
+run-fix-remaining.bat
 run-remap.bat
 run-rewrite-force.bat
 run-rewrite.bat
