@@ -41,7 +41,8 @@ This project aims to fix GitHub contribution attribution issues in a volunteer w
 - Initial context file creation
 - Created fix-remaining-attribution.sh to address inconsistent naming issues
 - Updated .mailmap file to use GitHub usernames consistently
-- Added run-fix-remaining.bat for Windows execution
+- Added run-fix-remaining.bat for Windows execution using Git Bash
+- Created Fix-RemainingAttribution.ps1 as a PowerShell alternative
 
 ## Next Steps
 1. Run the fix-remaining-attribution.sh script to fix the detected issues
@@ -58,3 +59,4 @@ This project aims to fix GitHub contribution attribution issues in a volunteer w
 - `.mailmap`: Maps contributor identities to correct GitHub accounts
 - `CONTRIBUTORS.md`: Documents team contributions
 - `run-fix-remaining.bat`: Windows batch file to run the fix-remaining-attribution.sh script
+- `Fix-RemainingAttribution.ps1`: PowerShell alternative using git-filter-repo
