@@ -46,12 +46,11 @@ This project was developed collaboratively by the following team members, each r
 
 ## Contribution Statistics
 
-Each team member made significant contributions to the project, with the following approximate distribution of work:
+Each team member made significant contributions to the project, with the following final distribution of work (as of April 8, 2025):
 
-- **Haley Trinh**: 28.2% (20 commits)
-- **Ayan Anees**: 26.8% (19 commits)
-- **Sameer Gul**: 22.5% (16 commits)
-- **Hanna Asfaw**: 19.7% (14 commits)
-- **Team (Joint work)**: 2.8% (2 commits)
+- **Haley Trinh (haleytri)**: 37.3% (60 commits)
+- **Ayan Anees (AyanAnees)**: 25.5% (41 commits)
+- **Hanna Asfaw (Hannadem12)**: 21.7% (35 commits)
+- **Sameer Gul (SameerGul123)**: 15.5% (25 commits)
 
 The project evolved from February to March 2025, following a collaborative workflow with feature branches and pull requests.
