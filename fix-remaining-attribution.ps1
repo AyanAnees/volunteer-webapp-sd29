@@ -1,5 +1,8 @@
 # PowerShell script to fix remaining attribution issues in Git repository
 
+# Suppress filter-branch warning
+$env:FILTER_BRANCH_SQUELCH_WARNING = 1
+
 # Function to display current contribution statistics
 function Show-GitStats {
     Write-Host "`nCurrent contribution statistics:" -ForegroundColor Cyan
