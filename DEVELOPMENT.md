@@ -662,3 +662,9 @@ Created scripts for database migrations.
 
 ---
 
+## Resolve final test issues (2025-04-09T14:15:22)
+
+Fixed remaining test failures.
+
+---
+
