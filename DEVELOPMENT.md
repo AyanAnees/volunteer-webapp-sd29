@@ -638,3 +638,9 @@ Configured build process for production.
 
 ---
 
+## Configure environment variables (2025-04-09T10:37:21)
+
+Set up environment variable management.
+
+---
+
