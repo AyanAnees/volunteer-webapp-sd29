@@ -1,80 +1,84 @@
-import express from 'express';
-import cors from 'cors';
-import dotenv from 'dotenv';
-import pool from './db.js';  
+const express = require("express");
+const path = require("path");
+const cors = require("cors");
+const bodyParser = require("body-parser");
+require('dotenv').config();
 
-dotenv.config();
+// Import routes
+const eventRoutes = require('./routes/events');
+const authRoutes = require('./routes/auth');
+const profileRoutes = require('./routes/profile');
+const historyRoutes = require('./routes/history');
+const statesRoutes = require('./routes/states');
+const volunteerMatchingRoutes = require('./routes/volunteer-matching');
+const logsRoutes = require('./routes/logs');
 
 const app = express();
-app.use(cors({ origin: "http://127.0.0.1:5501" , credentials: true }));
-app.use(express.json()); 
+const PORT = process.env.PORT || 3000;
 
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*"); 
-    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
+// Middleware
+app.use(cors());
+app.use(bodyParser.json());
+
+// Serve static files from the client/public directory
+app.use(express.static(path.join(__dirname, '../client/public')));
+
+// Debug middleware to log all API requests
+app.use('/api', (req, res, next) => {
+  console.log(`API Request: ${req.method} ${req.originalUrl}`);
+  next();
 });
 
-app.post('/events', async (req, res) => {
-    try {
-        const { eventName, eventDescription, location, urgency, startDate, endDate } = req.body;
-        console.log("Received Data:", req.body);
-        const [result] = await pool.query(
-            'INSERT INTO events (event_name, event_description, location, urgency, start_date, end_date) VALUES (?, ?, ?, ?, ?, ?)',
-            [eventName, eventDescription, location, urgency, startDate, endDate]
-        );
-        res.status(201).json({ message: "Event added successfully!", eventId: result.insertId });
-    } catch (error) {
-        console.error('Error saving event:', error);
-        res.status(500).json({ error: "Database error" });
-    }
+// API routes
+app.use('/api/events', eventRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/profile', profileRoutes);
+app.use('/api/history', historyRoutes);
+app.use('/api/states', statesRoutes);
+app.use('/api/volunteer-matching', volunteerMatchingRoutes);
+app.use('/api/logs', logsRoutes);
+
+// Route to serve HTML pages
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/views/index.html'));
 });
 
-
-app.get('/events', async (req, res) => {
-    try {
-        const [rows] = await pool.query('SELECT * FROM events');
-        res.json(rows);
-    } catch (error) {
-        console.error('Error fetching events:', error);
-        res.status(500).json({ error: "Database error" });
-    }
-});
-app.put('/events/:id', async (req, res) => {
-    try {
-        const eventId = req.params.id;
-        const { eventName, eventDescription, location, urgency, startDate, endDate, skills } = req.body;
-
-        const [result] = await pool.query(
-            'UPDATE events SET event_name=?, event_description=?, location=?, urgency=?, start_date=?, end_date=?, skills=? WHERE id=?',
-            [eventName, eventDescription, location, urgency, startDate, endDate, skills, eventId]
-        );
-
-        if (result.affectedRows === 0) {
-            return res.status(404).json({ error: "Event not found" });
-        }
-
-        res.json({ message: "Event updated successfully!" });
-    } catch (error) {
-        console.error('Error updating event:', error);
-        res.status(500).json({ error: "Database error" });
-    }
+app.get('/event-management', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/views/event-management.html'));
 });
 
-app.delete('/events/:id', async (req, res) => {
-    try {
-        const eventId = req.params.id;
-        await pool.query('DELETE FROM events WHERE id = ?', [eventId]);
-        res.json({ message: "Event deleted successfully!" });
-    } catch (error) {
-        console.error('Error deleting event:', error);
-        res.status(500).json({ error: "Database error" });
-    }
+app.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/views/login.html'));
 });
-export default app;
-if (import.meta.url === `file://${process.argv[1]}`) {
-    const PORT = process.env.PORT || 5001;
-    app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));
-}
 
+app.get('/volunteer-matching', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/views/volunteer-matching.html'));
+});
+
+app.get('/profile', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/views/profile.html'));
+});
+
+app.get('/history', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/views/history.html'));
+});
+
+app.get('/notifications', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/views/notifications.html'));
+});
+
+// 404 handler for API routes that don't exist
+app.use('/api/*', (req, res) => {
+    console.log('API route not found:', req.originalUrl);
+    res.status(404).json({ error: 'API endpoint not found' });
+});
+
+// Catch-all route for non-API routes - serve the SPA
+app.get('*', (req, res) => {
+    // For all other routes, serve the main index.html
+    // This allows client-side routing to work properly
+    res.sendFile(path.join(__dirname, '../client/views/index.html'));
+});
+
+// Export for main server file
+module.exports = app;

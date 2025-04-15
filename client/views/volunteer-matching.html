@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer Matching</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, rgb(201, 230, 240) 0%, rgb(214, 235, 255) 100%);
+            min-height: 100vh;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #0d47a1;
+            color: white;
+            margin-bottom: 2rem;
+        }
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: normal;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #90caf9;
+        }
+        .match-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .info-card {
+            background-color: #f0f7ff;
+            border-left: 4px solid #3b82f6;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        .button {
+            background-color: #1e40af;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #1e3a8a;
+        }
+        .submit-button {
+            background-color: #15803d;
+        }
+        .submit-button:hover {
+            background-color: #166534;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div>VolunteerHub</div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/event-management">Events</a>
+            <a href="/volunteer-matching">Volunteer Matching</a>
+            <a href="/profile">Profile</a>
+            <a href="/history">History</a>
+            <a href="/notifications">Notifications</a>
+            <a href="/login">Login</a>
+        </div>
+    </div>
+    
+    <div class="match-container">
+        <h1 class="text-2xl font-bold text-center mb-6">Volunteer Assignment System</h1>
+        
+        <div id="debug-output" class="hidden bg-yellow-100 p-4 mb-4 rounded text-xs overflow-auto max-h-40">
+            <h3 class="font-bold mb-2">Debug Output:</h3>
+            <pre id="debug-log"></pre>
+            
+            <div class="mt-4 space-y-2">
+                <button onclick="testDirectProfileFetch()" class="bg-yellow-500 text-white text-xs p-1 rounded">
+                    Test Direct Profile Fetch
+                </button>
+                <button onclick="testEventsApi()" class="bg-blue-500 text-white text-xs p-1 rounded">
+                    Test Events API
+                </button>
+                <button onclick="loadAllEvents()" class="bg-green-500 text-white text-xs p-1 rounded">
+                    Load All Events
+                </button>
+                <button onclick="createTestEvent()" class="bg-purple-500 text-white text-xs p-1 rounded">
+                    Create Test Event
+                </button>
+            </div>
+        </div>
+        
+        <div class="flex justify-end mb-2">
+            <button onclick="toggleDebug()" class="text-xs text-gray-500 underline">Toggle Debug</button>
+        </div>
+        
+        <div class="mb-8">
+            <h2 class="text-xl font-semibold mb-4">Find Volunteer</h2>
+            <div class="flex gap-2 mb-4">
+                <input type="text" id="name" name="name" class="flex-1 p-2 border border-gray-300 rounded" 
+                       placeholder="Search volunteer by name or email" required>
+                <button onclick="match()" class="button">Find Volunteer</button>
+            </div>
+            
+            <div id="volunteer-info" class="info-card">
+                <h3 class="font-semibold mb-2">Volunteer Information</h3>
+                <p id="skills" class="mb-2">Skills: </p>
+                <p id="prefs">Preferences: </p>
+            </div>
+        </div>
+        
+        <div class="mb-8">
+            <h2 class="text-xl font-semibold mb-4">Assign to Event</h2>
+            <p id="match-info" class="text-blue-600 mb-4 font-medium hidden"></p>
+            <form id="match-form" onsubmit="return sendEvent()">
+                <div class="mb-4">
+                    <label for="evSelector" class="block mb-2">Select an Event:</label>
+                    <select name="evSelector" id="evSelector" class="w-full p-2 border border-gray-300 rounded" required>
+                        <option value="">-- Select an Event --</option>
+                    </select>
+                </div>
+                
+                <div class="text-center">
+                    <button type="submit" class="button submit-button w-1/2">Assign Volunteer to Event</button>
+                </div>
+            </form>
+        </div>
+        
+        <div class="text-sm text-gray-600 mt-8">
+            <h3 class="font-semibold mb-2">How Volunteer Assignment Works</h3>
+            <p>This system allows you to:</p>
+            <ul class="list-disc ml-5 mt-2">
+                <li>Search for volunteers by name or email</li>
+                <li>View volunteer skills and preferences</li>
+                <li>See all available events in the system</li>
+                <li>Directly assign volunteers to any event</li>
+            </ul>
+            <p class="mt-2">When you assign a volunteer to an event, a record is created in the volunteer history table.</p>
+        </div>
+    </div>
+    
+    <script src="/js/auth.js"></script>
+    <script src="/js/volunteer-matching.js"></script>
+</body>
+</html>
