@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Report</title>
+  <link rel="stylesheet" type="text/css" href="../CSS/report.css"> 
+</head>
+<body>
+  <h1>Volunteer Activity Report</h1>
+
+  <div class="filters">
+    <label for="start-date">Start Date:</label>
+    <input type="date" id="start-date">
+
+    <label for="end-date">End Date:</label>
+    <input type="date" id="end-date">
+    <label>VolunteerID</label>
+    <input type = "text">
+    <label for="state">State:</label>
+      <select id="state" name="state" required>
+        <option value="">Select a state</option>
+        <option value="AL">AL</option>
+        <option value="AK">AK</option>
+        <option value="AZ">AZ</option>
+        <option value="AR">AR</option>
+        <option value="CA">CA</option>
+        <option value="TX">TX</option>
+      </select>
+
+    <button onclick="fetchReport()">Filter</button>
+  </div>
+
+  <table id="report-table">
+    <thead>
+      <tr>
+        <th>Event ID</th>
+        <th>Description</th>
+        <th>Location</th>
+        <th>Satrt Date</th>
+        <th>End Date</th>
+        <th>Number of Volunteers</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script src="report.js"></script>
+</body>
+</html>

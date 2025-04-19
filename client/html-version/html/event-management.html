@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang = "en">
+    
 
     <head>
         <meta charset="UTF-8 ">  
         <meta http-equiv=" X-UA-Compatible" content = "IE=edge">
         <meta name = "viewpoint" content=" width=divice-width, initial-scale = 1.0">
-        
+  
+
 
         <title>Management form</title>
         <link rel="stylesheet" type = "text/css" href="../CSS/event-management.css"> 
-   
+        
+
     </head>
     <body>
         <div class="navbar">
@@ -17,6 +20,7 @@
             <div class="nav-links">
               <a href="#">Home</a>
               <a href="#">Menu</a>
+              <a href="#">Events</a>
               
             </div>
           </div>
@@ -164,10 +168,10 @@
              
             </div>
 
-        <h2>Event List</h2>
-        <ul id="event-list"></ul>
-
+ 
+       
         <script>
+         
             let eventCounter = 0;
             let events = [];
             document.getElementById("event-management-form").addEventListener("submit", async function (event) {
@@ -189,7 +193,7 @@
                 
 
                 try {
-                    const response = await fetch("http://localhost:3000/submit-event", {
+                    const response = await fetch("http://localhost:3002/api/events", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify(eventData)
@@ -211,7 +215,7 @@
 
             async function fetchEvents() {
                 try {
-                    const response = await fetch("http://localhost:3000/events");
+                    const response = await fetch("http://localhost:3002/api/events");
                     const events = await response.json();
                     const eventList = document.getElementById("event-list");
                     eventList.innerHTML = "";
@@ -243,7 +247,7 @@
                 
                 try {
                     // Make a DELETE request to remove the event from the backend
-                    const response = await fetch(`http://localhost:3000/events/${eventId}`, {
+                    const response = await fetch("http://localhost:3002/api/events${eventId}", {
                         method: "DELETE"
                     });
 
@@ -263,6 +267,7 @@
                 }
             }           
             fetchEvents();
+        
         </script>
                 
           </form>
@@ -271,5 +276,3 @@
 
     </body>
 </html>
-
-

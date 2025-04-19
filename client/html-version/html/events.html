@@ -42,7 +42,7 @@
     
         async function deleteEvent(eventId) {
             try {
-                await fetch(`http://localhost:3000/events/${eventId}`, { method: "DELETE" });
+                await fetch(`http://localhost:3002/events/${eventId}`, { method: "DELETE" });
                 loadEvents();  
             } catch (error) {
                 console.error(" Error deleting event:", error);

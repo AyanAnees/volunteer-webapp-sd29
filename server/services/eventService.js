@@ -1,5 +1,6 @@
 const supabase = require('../config/supabase');
 
+
 /**
  * Service to handle event-related operations using Supabase
  */
