@@ -12,6 +12,8 @@ const historyRoutes = require('./routes/history');
 const statesRoutes = require('./routes/states');
 const volunteerMatchingRoutes = require('./routes/volunteer-matching');
 const logsRoutes = require('./routes/logs');
+const repRoutes = require('./routes/report');
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -37,6 +39,7 @@ app.use('/api/history', historyRoutes);
 app.use('/api/states', statesRoutes);
 app.use('/api/volunteer-matching', volunteerMatchingRoutes);
 app.use('/api/logs', logsRoutes);
+app.use('/api/report', repRoutes);
 
 // Route to serve HTML pages
 app.get('/', (req, res) => {
@@ -66,6 +69,12 @@ app.get('/history', (req, res) => {
 app.get('/notifications', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/views/notifications.html'));
 });
+
+app.get('/report', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/views/report.html'));
+});
+
+app.use('/', repRoutes);
 
 // 404 handler for API routes that don't exist
 app.use('/api/*', (req, res) => {
