@@ -4,6 +4,10 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 require('dotenv').config();
 
+
+
+
+
 // Import routes
 const eventRoutes = require('./routes/events');
 const authRoutes = require('./routes/auth');
