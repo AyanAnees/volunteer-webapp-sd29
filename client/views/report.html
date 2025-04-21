@@ -30,6 +30,12 @@
                     window.location.href= '/report/download';
                 });
             </script>
+            <button id = "csv-download" class = "download-btn">Download CSV Report</button>
+            <script>
+                document.getElementById('csv-download').addEventListener('click', function(){
+                    window.location.href= '/report/csvdownload';
+                });
+            </script>
         </main>
     </div>
     <script src="/js/auth.js"></script>

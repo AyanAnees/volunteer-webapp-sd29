@@ -10,6 +10,7 @@ A comprehensive web application designed to connect volunteers with volunteering
 - **User Profiles**: Customizable profiles with preferences and history
 - **Volunteer History**: Track and display volunteering activity
 - **Notifications**: Alert system for new opportunities and updates
+- **Report Generator**: Download volunteer and event management reports as PDFs and CSVs
 
 ## Tech Stack
 - **Frontend**: HTML, CSS, JavaScript
@@ -76,7 +77,7 @@ npm test
 
 ## Team
 - **Ayan Anees**: Authentication and state management
-- **Haley Tri**: Volunteer matching and history features
+- **Haley Trinh**: Volunteer matching and history features
 - **Hanna Asfaw**: Event management functionality
 - **Sameer Gul**: User profile management
 
