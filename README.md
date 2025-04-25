@@ -161,8 +161,8 @@ The application uses the following core tables:
 ## Team
 
 - **Ayan Anees** - Authentication and State Management
-- **Haley Tri** - Volunteer Matching and History Features
-- **Hanna Dem** - Event Management
+- **Haley Trinh** - Volunteer Matching and History Features
+- **Hanna Asfaw** - Event Management
 - **Sameer Gul** - Profile Management and UI Components
 
 ## Contributing
